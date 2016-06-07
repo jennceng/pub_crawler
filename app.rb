@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 
-
 configure :development, :test do
   require 'pry'
 end
@@ -15,6 +14,32 @@ configure do
 end
 
 get '/' do
-  @title = "Hello World"
-  erb :index
+  redirect '/bars'
+end
+
+get '/bars' do
+  @bars = Bar.all
+
+  erb :'bars/index'
+end
+
+get '/bars/:id' do
+  @bar = Bar.find(params[:id])
+  @pubcrawls = @bar.pubcrawls
+  @reviews = @bar.reviews
+
+  erb :'bars/show'
+end
+
+get '/pubcrawls' do
+  @pubcrawls = Pubcrawl.all
+
+  erb :'pubcrawls/index'
+end
+
+get '/pubcrawls/:id' do
+  @pubcrawl = Pubcrawl.find(params[:id])
+  @bars = @pubcrawl.bars
+
+  erb :'pubcrawls/show'
 end

@@ -8,17 +8,19 @@ require_relative '../app.rb'
 set :environment, :test
 set :database, :test
 
-ActiveRecord::Base.logger.level = 1
-
 Capybara.app = Sinatra::Application
 
+ActiveRecord::Base.logger = nil
+
 RSpec.configure do |config|
-  config.backtrace_exclusion_patterns << /.rubies/
-  config.backtrace_exclusion_patterns << /.gem/
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-  config.filter_run focus: true
-  config.run_all_when_everything_filtered = true
-
-  config.order = :random
-  Kernel.srand config.seed
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end

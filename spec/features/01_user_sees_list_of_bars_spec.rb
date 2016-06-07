@@ -11,9 +11,8 @@ require 'spec_helper'
 feature "User views the Bars index page" do
 
   scenario "user sees a list of bars" do
-    binding.pry
-    bar_1 = Bar.create(name: "People's Republik", description: "Has darts!")
-    bar_2 = Bar.create(name: "Brick & Mortar", description: "Formerly the Enormous Room")
+    bar_1 = Bar.create(name: "People's Republik", description: "Has darts!", address: "1 mass ave")
+    bar_2 = Bar.create(name: "Brick & Mortar", description: "Formerly the Enormous Room", address: "2 harvard street")
 
     visit '/'
 

@@ -1,0 +1,20 @@
+<h1><%= @bar.name %></h1>
+<h2><%= @bar.name %></h2>
+<h3><%= @bar.description %></h3>
+<h3>Reviews:</h3>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.username %> says <%= review.body %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Pubcrawls:</h3>
+<ul>
+  <% @pubcrawls.each do |pubcrawl| %>
+    <li>
+      <%= pubcrawl.name %>
+    </li>
+  <% end %>
+</ul>
