@@ -15,21 +15,24 @@ feature "User views a bars show page" do
     bar_1 = Bar.create(name: "People's Republik", description: "Has darts!", address: "1 mass ave")
     bar_2 = Bar.create(name: "Brick & Mortar", description: "Formerly the Enormous Room", address: "2 harvard street")
 
-    review_1 = Review.create(bar: bar_1, reviewer_name: "Liz Lemon", body: "sweet communist imagery!")
-    review_2 = Review.create(bar: bar_2, reviewer_name: "Lutz", body: "swanky upstairs location")
+    review_1 = Review.create(bar: bar_1, username: "IPAlover", body: "sweet communist imagery!")
+    review_2 = Review.create(bar: bar_2, username: "G&TallDay", body: "swanky upstairs location")
+
+    pubcrawl = Pubcrawl.create(name: "birthday bash")
+    signup = Signup.create(pubcrawl: pubcrawl, bar: bar_1)
 
     visit '/bars'
     click_on bar_1.name
 
     expect(page).to have_content bar_1.name
-    expect(page).to_not have_content bar_2.name
-
     expect(page).to have_content bar_1.description
-    expect(page).to have_content review_1.reviewer_name
+    expect(page).to have_content pubcrawl.name
+    expect(page).to have_content review_1.username
     expect(page).to have_content review_1.body
 
+    expect(page).to_not have_content bar_2.name
     expect(page).to_not have_content bar_2.description
-    expect(page).to have_content review_2.reviewer_name
+    expect(page).to_not have_content review_2.username
     expect(page).to_not have_content review_2.body
   end
 end
