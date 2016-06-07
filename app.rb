@@ -20,7 +20,7 @@ end
 get '/bars' do
   @bars = Bar.all
 
-  erb :'bars/index'
+  erb :'bars_index'
 end
 
 get '/bars/:id' do
@@ -28,18 +28,18 @@ get '/bars/:id' do
   @pubcrawls = @bar.pubcrawls
   @reviews = @bar.reviews
 
-  erb :'bars/show'
+  erb :'bars_show'
 end
 
 get '/pubcrawls' do
   @pubcrawls = Pubcrawl.all
 
-  erb :'pubcrawls/index'
+  erb :'pubcrawls_index'
 end
 
 get '/pubcrawls/:id' do
   @pubcrawl = Pubcrawl.find(params[:id])
   @bars = @pubcrawl.bars
 
-  erb :'pubcrawls/show'
+  erb :'pubcrawls_show'
 end
