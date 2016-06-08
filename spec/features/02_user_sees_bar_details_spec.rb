@@ -4,9 +4,12 @@ require 'spec_helper'
 #   As a User
 #   I want to click an individual bar
 #   So I can see the details of that bar and its reviews
+#   And all the pubcrawls the bar is signed up for
+
 #   Acceptance Criteria
 #   [ ] I can click a link from the index page that leads me to the show page
 #   [ ] On the show page I can see details about the bar and its reviews
+#   [ ] I should see all of the the pubcrawls the bar is signed up for
 #   [ ] I should not see details / reviews of other bars
 
 feature "User views a bars show page" do
@@ -14,7 +17,7 @@ feature "User views a bars show page" do
   scenario "user sees a bars name, description, address, and reviews" do
     bar_1 = Bar.create(name: "People's Republik", description: "Has darts!", address: "1 mass ave")
     bar_2 = Bar.create(name: "Brick & Mortar", description: "Formerly the Enormous Room", address: "2 harvard street")
-    
+
     review_1 = Review.create(bar: bar_1, username: "IPAlover", body: "sweet communist imagery!")
     review_2 = Review.create(bar: bar_2, username: "G&TallDay", body: "swanky upstairs location")
 
