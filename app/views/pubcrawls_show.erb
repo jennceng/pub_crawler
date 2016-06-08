@@ -1,0 +1,10 @@
+<h1><%= @pubcrawl.name %></h1>
+
+<h3>Bars Participating in this pub crawl:</h3>
+<ul>
+  <% @bars.each do |bar| %>
+    <li>
+      <a href="/bars/<%= bar.id %>"</a> <%= bar.name %>
+    </li>
+  <% end %>
+</ul>
