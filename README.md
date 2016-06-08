@@ -17,7 +17,7 @@
     * Must have an address
     * Can optionally have a description
     * Can have many reviews
-    * Can can sign up to many pubcrawls
+    * Can sign up to many pubcrawls
 
     #### Reviews
 
