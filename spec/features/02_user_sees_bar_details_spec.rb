@@ -14,7 +14,7 @@ feature "User views a bars show page" do
   scenario "user sees a bars name, description, address, and reviews" do
     bar_1 = Bar.create(name: "People's Republik", description: "Has darts!", address: "1 mass ave")
     bar_2 = Bar.create(name: "Brick & Mortar", description: "Formerly the Enormous Room", address: "2 harvard street")
-
+    
     review_1 = Review.create(bar: bar_1, username: "IPAlover", body: "sweet communist imagery!")
     review_2 = Review.create(bar: bar_2, username: "G&TallDay", body: "swanky upstairs location")
 

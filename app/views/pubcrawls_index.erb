@@ -1,0 +1,9 @@
+<h1>Pubcrawls</h1>
+
+<ul>
+  <% @pubcrawls.each do |pubcrawl| %>
+  <li>
+    <a href="/pubcrawls/<%= pubcrawl.id %>"> <%= pubcrawl.name %> </a>
+  </li>
+  <% end %>
+</ul>
