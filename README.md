@@ -5,7 +5,7 @@
 
   Create the migrations to build a schema, and models to represent the following data and object relationships:
 
-    ####
+    ```
     #### Pubcrawls
 
     * A pubcrawl must have a name
@@ -24,6 +24,7 @@
     * Must have a username
     * Must have a body
     * Belongs to a single bar
+```
 
 ## Part 2
   * For Part 2 we will run our specs one at a time and get our code to pass!  Our erb templates and our routes have been pre-built... but how do we query for our necessary data???
